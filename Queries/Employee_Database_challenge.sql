@@ -283,3 +283,16 @@ WHERE (e.birth_date BETWEEN '1965-01-01' AND '1965-12-31')
 	 AND (de.to_date = '9999-01-01')
 ORDER BY e.emp_no;
 SELECT * FROM mentorship_eligibility;
+
+--Summary additional tables or query
+SELECT COUNT (me.title), me.title
+INTO mentors
+FROM mentorship_eligibility as me
+GROUP BY me.title
+ORDER BY count DESC;
+SELECT * FROM mentors; 
+
+SELECT SUM (count) as title_count
+INTO title_count
+FROM retiring_titles; 
+
